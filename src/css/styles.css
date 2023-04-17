@@ -18,3 +18,34 @@ body {
   max-width: 320px;
   margin-bottom: 16px;
 }
+
+.country-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.country__item {
+  padding: 5px;
+  border: 1px solid #212121;
+  border-radius: 5px;
+  max-width: 380px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.country__info {
+  border: 2px solid red;
+  border-radius: 8px;
+  max-width: 380px;
+}
+.country__item:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.country__properties {
+  list-style: none;
+  padding: 20px;
+  margin: 0;
+}
