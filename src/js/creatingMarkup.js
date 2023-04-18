@@ -41,7 +41,7 @@ function createListELement({ flags, name }) {
 }
 
 function createMarkup(markup, element) {
-  element.innerHTML(markup);
+  element.innerHTML = markup;
 }
 
 function getValues(object) {
