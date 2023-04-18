@@ -4,6 +4,7 @@ function createForManyMathes(countryNames) {
     (markup, countryName) => markup + createListELement(countryName),
     ''
   );
+  return markup;
   // console.log(markup);
 }
 
@@ -41,7 +42,7 @@ function createListELement({ flags, name }) {
 }
 
 function createMarkup(markup, element) {
-  element.innerHTML = markup;
+element.innerHTML = markup;
 }
 
 function getValues(object) {

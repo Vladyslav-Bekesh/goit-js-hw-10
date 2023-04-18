@@ -36,9 +36,15 @@ function onInput(event) {
 
 function checkAndCreateCountries(countries) {
   if (countries.length === 1) {
-    createMarkup(createForOneMatch(countries), refs.countryInfo);
+    createMarkup(
+      createForOneMatch(countries),
+      document.querySelector('country-info')
+    );
   } else if (countries.length <= 10 && countries.length > 1) {
-    createMarkup(createForManyMathes(countries), refs.countryList);
+    createMarkup(
+      createForManyMathes(countries),
+      document.querySelector('country-list')
+    );
   } else {
     Notify.info('Too many matches found. Please enter a more specific name.');
   }
