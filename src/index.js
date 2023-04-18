@@ -1,5 +1,13 @@
 import './css/styles.css';
+//*own func
 import { fetchCountries } from './js/fetchCountries';
+import {
+  createForManyMathes,
+  createForOneMatch,
+  createMarkup,
+} from './js/creatingMarkup';
+
+//*libr
 import _ from 'lodash';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
@@ -15,15 +23,23 @@ refs.input.addEventListener('input', _.debounce(onInput, DEBOUNCE_DELAY));
 
 function onInput(event) {
   event.preventDefault();
+
   const countryName = refs.input.value;
-  fetchCountries(countryName)
-    .then(countries => {
-      if (countries.status === 404) {
-        Notify.failure('enter correct counry name please');
-      }
-      console.log(countries);
-    })
-    .catch(error => {
-      
-    });
+  fetchCountries(countryName).then(countries => {
+    checkAndCreateCountries(countries);
+  });
+  // .catch(error => {
+  //   Notify.failure('Oops, there is no country with that name');
+  //   return;
+  // });
+}
+
+function checkAndCreateCountries(countries) {
+  if (countries.length === 1) {
+    createMarkup(createForOneMatch(countries), refs.countryInfo);
+  } else if (countries.length <= 10 && countries.length > 1) {
+    createMarkup(createForManyMathes(countries), refs.countryList);
+  } else {
+    Notify.info('Too many matches found. Please enter a more specific name.');
+  }
 }
