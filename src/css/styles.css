@@ -49,3 +49,9 @@ body {
   padding: 20px;
   margin: 0;
 }
+.list-element__img{
+  height: 40px;
+}
+.one-element__img{
+  height: 70px;
+}

@@ -13,9 +13,7 @@ function createForOneMatch(countryName) {
   const { flags, name, languages, capital, population } = countryName[0];
   return `<div class="country__info">
   <div class="country__name">
-    <svg class="" width="20" height="20">
-      <use href="${flags.png}"></use>
-    </svg>
+    <img class="one-element__img" src="${flags.png}" alt="">
     <span>${name.official}</span>
   </div>
   <ul class="country__properties">
@@ -34,9 +32,7 @@ function createForOneMatch(countryName) {
 
 function createListELement({ flags, name }) {
   return `<li class="country__item">
-    <svg class="country__svg" width="100" height="80">
-      <use href="${flags.png}"></use>
-    </svg>
+    <img class="list-element__img" src="${flags.png}" alt="">
     <span class="country__svg">${name.official}</span>
   </li>`;
 }
